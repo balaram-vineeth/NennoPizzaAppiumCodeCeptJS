@@ -7,19 +7,25 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 export const config: CodeceptJS.MainConfig = {
-  tests: './*_test.ts',
+  tests: './**/*_test.ts',
   output: './output',
   helpers: {
     "Appium": {
       "platform": "android",
       "automationName": "uiautomator2",
-      "deviceName": "emulator-5554",
+      "deviceName": "13251JEC203081",
       "fullReset": true,
       "enablePerformanceLogging": true,
       "platformVersion": "12",
-      "app": "E:\\Personal Stuff\\Desktop\\App_Docler\\nennosPizza.apk"
+      "app": "/Users/admin/Learn/CodeCeptAppiumSample/NennoPizzaAppiumCodeCeptJS/app/nennosPizza.apk"
     }
   },
   include: {},
-  name: 'CodeCeptJS'
+  name: 'CodeCeptJS',
+  "plugins": {
+    "allure": {
+      "outputDir":"output"
+    }
+}
+
 }
