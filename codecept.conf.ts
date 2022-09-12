@@ -7,17 +7,18 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 export const config: CodeceptJS.MainConfig = {
-  tests: './**/*_test.ts',
+  tests: '',
   output: './output',
   helpers: {
-    "Appium": {
-      "platform": "android",
-      "automationName": "uiautomator2",
-      "deviceName": "13251JEC203081",
-      "fullReset": true,
-      "enablePerformanceLogging": true,
-      "platformVersion": "12",
-      "app": "/Users/admin/Learn/CodeCeptAppiumSample/NennoPizzaAppiumCodeCeptJS/app/nennosPizza.apk"
+    Appium: {
+      platform: "android",
+      device: "emulator-5554",
+      app: "/Users/admin/Learn/CodeCeptAppiumSample/NennoPizzaAppiumCodeCeptJS/app/nennosPizza.apk",
+      desiredCapabilities: {
+        automationName: "uiautomator2",
+        fullReset: true,
+        platformVersion: "11"  
+      }
     }
   },
   include: {},
@@ -26,6 +27,17 @@ export const config: CodeceptJS.MainConfig = {
     "allure": {
       "outputDir":"output"
     }
-}
+  },
 
-}
+  "gherkin": {
+    "features": [
+        "./features/*.feature",
+        "./features/api_features/*.feature"
+      ],
+    "steps": [
+      "./step_definitions/custom_steps.ts",
+      "./step_definitions/ricci_steps.ts",
+      "./step_definitions/drinks_steps.ts"
+    ]
+    }
+};
