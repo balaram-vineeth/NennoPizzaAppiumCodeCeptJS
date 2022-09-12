@@ -13,4 +13,5 @@ This is a sample project for mobile automation with the following technologies
 4. Run the tests by running the command `npm run tests`
 
 ## Reports
-The report used is allure reports and its automatically opened once the tests runs are done
+The report used is allure reports and its automatically opened once the tests runs are done; or by running the command `allure serve output`
+Please ensure you have allure command line tools installed with `npm install -g allure-commandline`
